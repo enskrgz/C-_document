@@ -1,0 +1,218 @@
+Ders 14 Kapsam 
+ 
+-global tanımlanan değişkene heryerden ulaşılabilir
+
+-local tanımlanan sadece kendi içinden yani sadece o metot için kullanımı söz konusudur.
+
+Ders 15 veri Tipleri
+
+
+bool 16 bit  
+char 16 bit tek tırnak ile değer alır
+string çoğullaştırılmış char demektir, 
+float 32 bit  (1.5f)
+double 64 bit 
+decimal 128 bit (1.6m) 
+byte 8  0-255
+sbyte 8 -128 - 127
+short 16 -+32768
+ushort 16 0-65535
+int 32 -2,147,483,643 - 2,147,483,647
+uint 32 0-4,294,967,295
+long 64 -900000000000000
+
+int maxvalue = int.MaxValue;
+uint MaxValue = uint.MaxValue; //sinyalsiz sayıları + kapasitede artırmak için
+double d1 = 1.2;
+float f1 = 32.8F;
+decimal d2 = 84.56M;
+char ch = (char)65;
+
+Ders 16 Sabitler
+
+değişkenlerin başına const eklendiği zaman değiştiremeyen değişken türüdür.
+
+Ders 17-18 Tür Dönüşümü 
+
+ int den double a dönüşüm yapılamaz
+ama doubledan inte dönüşüm yapılabilir
+1)convert ile
+double c=10.5;int d=7;
+d=convert.ToInt32(c);
+2)(int) ile
+d=(int)c;
+3)parse ile
+string yas="23";
+int y=int.parse(yas); //parse içerisindeki stringi inte çevirir
+4)tryparse ile
+int result;
+bool open=int.TryParse(yas,out result); hata oluşursa 0 değilse result ile sonuç
+// bilinçsiz dönüşüm 
+double a; int b;
+a=12,5;b=8;
+b=a // BU hata verecektir 
+a=b //bu çalışır çünkü double int i kapsamakta
+25781585898
+//stringden double a dönüşüm
+double yaricap;string yaricapgirilen;
+yaricapgirilen=Console.ReadLine();
+yaricap=Conver.ToDouble(yaricapgirilen); //strinden double dönüşüm
+
+
+19 nullable types 
+
+değişkenin istenilen parametrede gelmemesinde hata vermemek için kullanılır
+yani int? deg=null; //soru işareti bu özelliği kazandırır 
+
+double? dob=null;
+
+
+20 var kullanımı  
+
+değişkene girilen değerlere göre tipini kendi belirleyen değişken tipi oluşturmak için kullanılır
+
+var isim="Enes";
+var yas=23;
+var nesne1=new Program();
+
+
+21 object vs var 
+
+*var da ilk aldığı tip dışında bir değer girişi sağlanamaz 
+ama object de istenilen değer verilebilir (bu kötü kullanımdır)
+*object de hem tür hem değer değiştirilebilir
+*Var metotlarda parametre olarak kullanılamaz.
+*var global de tanımlanamaz.
+*var başlangıç değeri olmadan kullanılamaz.
+
+22 ref ve out  parametreleri
+
+ref: metotlarda return olarak döndürmek yerine değerin kaynağını değiştirir
+
+ static void Main(string[] args)
+        {  int para = 10;
+            Console.WriteLine("ilk para : "+ para);
+            param(ref para);
+	    Console.WriteLine("son para : " + para);
+            Console.ReadLine();            
+        }  static void  param(ref int x) 
+	    { x = x * 2;}
+
+out: ilk değer almasına gerek yoktur. 
+	değer alınmak isteniyorsa metotda belirtilir. ve değer verilmek zorundadır en başta.
+ 
+23 Enum kullanımı
+Enum tolu ve belli değerleri otomatik sıralamak için kullanılan metot
+
+enum yetki
+{
+Normal,    //0    dır ama bu değerler değiştirilebilir.
+Moderator=9, //1
+Editor,    //2
+Admin,     //3
+SuperAdmin //4
+}
+
+
+24 Enum gelişmiş
+
+25 Aritmetik Operatörler
+
+***mod alma 
+int a=9;,int b=5;
+sonuc=a½b;
+yani 9 mod 5 sonuc 4 olucak
+
+*** artırma operatörü
+++a;
+--b;
+a++;
+b--;
+
+***
+console.writeline(5==6-1&& 7>6); //içerisindeki mantıksal işlemlere karşılık true/false döndürür
+
+
+*** 
+
+30 if yapısı
+
+*eğer demekti. koşul oluşturulmak isteniyorsa kullanılır.
+*if den sonra süslü parantez kullanılmazsa yalnız tek satır işlem kapsar
+
+bool isvalid=false
+if(isvalid)
+{
+console.writeline("yanlış");
+}
+else if(isvalid=empty)
+{ 
+console.writeline("boş");
+}
+else
+{
+console.writeline("doğru");
+}
+**************Örnek
+byte ay = Convert.ToByte(Console.ReadLine());         
+            if (ay==1)
+            { Console.WriteLine("ocak"); }
+            else if (ay ==2)
+            { Console.WriteLine("şubat"); }
+            else if (ay == 3)
+            { Console.WriteLine("mart"); }
+            else if (ay == 4)
+            { Console.WriteLine("nisan"); }
+            else if (ay == 5)
+            { Console.WriteLine("mayıs"); }
+            else if (ay == 6)
+            { Console.WriteLine("haziran"); }
+            else if (ay == 7)
+            { Console.WriteLine("temmuz"); }
+            else if (ay == 8)
+            { Console.WriteLine("ağustos"); }
+            else if (ay == 9)
+            { Console.WriteLine("eylül"); }
+            else if (ay == 10)
+            { Console.WriteLine("ekim"); }
+            else if (ay == 11)
+            { Console.WriteLine("kasım"); }
+            else if (ay == 12)
+            { Console.WriteLine("aralık"); }
+            else
+                Console.WriteLine("Böyle bir ay yok :)");
+
+
+
+31 switch kullanımı
+switch belirli değerlere karşılık yapılacak eylemlerin belirlenebildiği metotdur.
+Örnek:
+ char deger = Convert.ToChar(Console.ReadLine());
+            switch (deger){
+	     case 'A': Console.WriteLine("1");break;
+	     case 'B': Console.WriteLine("2"); break;
+	     case 'C': Console.WriteLine("3"); break;
+                default:
+                    Console.WriteLine("geçersiz harf");
+                    break;
+		}
+Örnek:
+string kurum=Console.ReadLine();
+switch(kurum)
+{case "kyk": Console.WriteLine("Krediyurtlarkurumu");break;
+case "dgs":  Console.WriteLine("dikeygeçişsınavı");break;
+default: Console.WriteLine("kurum girilmedi");break;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
