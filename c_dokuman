@@ -204,6 +204,271 @@ case "dgs":  Console.WriteLine("dikeygeçişsınavı");break;
 default: Console.WriteLine("kurum girilmedi");break;}
 
 
+32 diziler
+
+**indexler 0 dan başlar
+TEk boyutlu diziler:
+
+örnek:
+
+ int[] dizi1 = new int[20]; //tanımlama
+		//int[] dizi1,dizi2,dizi3;
+            string[] sdizi = new string[7];
+
+            dizi1 =new int[]{10,54,66,35,99,45};
+            sdizi =new string[]{"enes","karagöz","23","izmir"};
+
+            for (int i = 0; i < sdizi.Length; i++)
+            {if (sdizi[i]==null)
+                {
+                    Console.Read();
+                }
+                Console.WriteLine(dizi1[i]+"---"+sdizi[i]);
+                
+            }
+            Console.Read();
+Örnek 2:
+
+	//metinler de aslında bir dizi parçacığıdır
+            string enes = "karagöz";
+            for (int i = 0; i < enes.Length; i++)
+            {Console.WriteLine(enes[i]);  }
+
+Örnek 3:
+
+int[] carp = new int[20];
+int sayi = int.Parse(Console.ReadLine());
+for (int i = 0; i < 20; i++)
+     {if (i==0)
+      {carp[i] = sayi;}
+      else{carp[i] = 2 * (carp[i - 1]);}
+       Console.WriteLine("dizinin {0}. elemanı: {1} ",i+1,carp[i]);}
+	Console.Read();
+
+iki boyutlu:
+
+//ikiboyutlu
+int[,] boyut = new int[3,2];
+boyut[0,0] = 1;
+boyut[0, 1] = 2;
+boyut[1, 0] = 3;
+boyut[1, 1] =4;
+boyut[2, 0] = 5;
+boyut[2, 1] =6;
+for (int i = 0; i < 3; i++)
+      {
+	for (int j = 0; j < 2; j++)
+                {
+                    Console.WriteLine("boyutt: " + boyut[i, j]);
+                }
+            }
+
+//üçboyutlu
+
+            int[,,] boyut = new int[2,2,2];
+            boyut[0,0,0] = 1;
+            boyut[0,0,1] = 2;
+            boyut[0,1,0] = 3;
+            boyut[0,1,1] =4;
+            boyut[1, 0, 0] = 5;
+            boyut[1, 0, 1] = 6;
+            boyut[1, 1, 0] = 7;
+            boyut[1, 1, 1] = 8;
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    for (int k = 0; k < 2; k++)
+                    {
+                        Console.WriteLine("boyutt: " + boyut[i, j, k]);
+                    } 
+                }
+            }
+
+            Console.Read();
+
+35  düzensiz diziler
+
+boş beleş bilgi??
+
+
+
+36 Jenerik olmayan koleksiyonlar
+
+ ****     using System.Collections; //kütüphanesi ekli olmalıdır.
+ArrayList:
+
+**capacity eleman sayısı arttıkça 2 nin katları kadar artar.
+**Mesela 3 değer varken 4 ,5 değer varken capacity 8 olur.
+
+ArrayList Sehirler = new ArrayList();
+            Sehirler.Add("izmir");
+            Sehirler.Add("ankara");
+            Sehirler.Add("yozgart");
+            Sehirler.Add("ankara");
+            Sehirler.Add("yozgart");
+            Sehirler.Add("enes");
+            //Sehirler.Capacity = 100; //eleman sınırı** Sehirler.Count değer  sayısı verir
+            Sehirler.Contains("İzmir"); 
+//contains değerler arasında izmir i arar
+            Sehirler.Add(3);
+            Sehirler.Add(true);
+            Sehirler.Add(new Program());
+            Console.WriteLine(Sehirler.Capacity);
+            Console.WriteLine(Sehirler.Count);
+
+
+hashtable:
+** hashtable key ve value değerleri saklar.key verilen değere karşılık gelen value yu döndürür.
+    Hashtable siniflar = new Hashtable();
+            siniflar.Add(1, "enes");
+            siniflar.Add(2, "tekin");
+            siniflar.Add(3, "mert");
+            siniflar.Add(4, "cem");
+            siniflar.Add(6, "kara");
+
+            foreach (DictionaryEntry item in siniflar)
+            {
+                Console.WriteLine(item.Key);
+            }
+
+
+37 jenerik koleksiyon
+
+
+            List<string> liste = new List<string>();
+            liste.Add("c");
+            liste.Add("c++");
+            liste.Add("python");
+
+            foreach (var item in liste)
+            {
+                Console.WriteLine(item);
+            }
+
+            liste.RemoveRange(1, 2);
+
+****Örnek
+
+   	Dictionary<int, string> list = new Dictionary<int, string>()
+            {
+               	 	{5,"osman"},
+                	{48,"nane" },
+                	{23,"enes" }
+            };
+            List<string> liste = list.Values.
+            	foreach (var item in liste)
+            {
+                	Console.WriteLine(item);
+            }
+
+38 For Kullanımı
+
+
+for(ifade1;ifade2;ifade3)
+{
+//İşletilecek kod kümesi
+}
+
+ifade1:döngüde kullanılacak değişken tanımlama
+ifade2:koşul işleminin yapıldığı alan
+ifade3:artırım ve azaltım miktarı ve türü belirlenir.
+
+Örnek:
+
+    for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("sayı:  "+i );
+            }
+
+Örnek2:
+ 		int i = 0;
+            	for (;;)
+                Console.WriteLine("aa");
+            
+
+39  while kullanımı
+
+  int i = 0;
+
+            while (i<19)
+            {
+                Console.WriteLine("reşit değilsin");
+                Console.WriteLine("Yaşın:{0}",i);
+                i++;//artırım olmazsa döngü sonsuz olur 
+                System.Threading.Thread.Sleep(1000);//1 sn bekleme
+            }
+
+40 do while kullanımı
+
+do while ilk olarak bir kez çalışır daha sonra koşulu kontrol eder.
+
+Örnek:
+
+  int counter = 1,i=0;
+            string sifre = "enes";
+            do
+            {
+                if (sifre==Console.ReadLine())
+                {
+                    Console.WriteLine("Şifre doğru");
+                    Console.WriteLine("Deneme sayısı:{0}",counter);
+
+                }
+                else
+                {
+                    Console.WriteLine("şifre yanlış tekrar dene.");
+                }
+                if (counter>2)
+                {
+                   break;
+                }
+                counter++;
+            } while (i < 45);
+
+
+
+41 Continue ve break
+
+
+ for (int i=1 = 0; i=5 <; i=1++)
+            {
+                if (i < 9)
+                {
+                    continue; //döngünün başına dön 
+                }
+                Console.WriteLine(i);
+                else if (i>12)
+                {
+                    break; //döngüden tamamen çık
+                }
+            }
+
+42 foreach kullanımı
+** foreach değer bitene kadar devam eder
+
+ int[] dizi1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            foreach (var sayi in dizi1)
+            {
+                Console.WriteLine(sayi);
+            }
+ 
+
+
+43 hata yönetimi(exception handling) 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
