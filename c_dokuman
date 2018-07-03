@@ -458,8 +458,31 @@ do while ilk olarak bir kez çalışır daha sonra koşulu kontrol eder.
 
 
 43 hata yönetimi(exception handling) 
+    int i = 5, j = 1;
+            try
+            {   //hata oluşabillecek kodlar buraya
+                Console.WriteLine(i / j);
+                int[] dizi = new int[2];
+                dizi[2] = 0;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("hata(IndexOutOfRangeException):"+ ex);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("hata(DivideByZeroException):"+ex);
+            }
+            catch
+            {   //burası switch case ddeki default gibi herhangi hatada çalışır
+                Console.WriteLine("bozuldum!");
+            }
+            finally
+            { // hata olsada olmasada çalışacak blok
+                //hata oluştuğunda yarım kalabilecek işler için kullanılır genel olarak
+                //mesela açık kalan veri tabanı bağlantısını con.close(); gibi
 
-
+            }
 
 
 
