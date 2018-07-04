@@ -458,7 +458,7 @@ do while ilk olarak bir kez çalışır daha sonra koşulu kontrol eder.
 
 
 43 hata yönetimi(exception handling) 
-    int i = 5, j = 1;
+                int i = 5, j = 1;
             try
             {   //hata oluşabillecek kodlar buraya
                 Console.WriteLine(i / j);
@@ -467,23 +467,84 @@ do while ilk olarak bir kez çalışır daha sonra koşulu kontrol eder.
             }
             catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine("hata(IndexOutOfRangeException):"+ ex);
+                Console.WriteLine("hata(IndexOutOfRangeException):" + ex);
             }
             catch (DivideByZeroException ex)
             {
-                Console.WriteLine("hata(DivideByZeroException):"+ex);
+                Console.WriteLine("hata(DivideByZeroException):" + ex);
             }
             catch
-            {   //burası switch case ddeki default gibi herhangi hatada çalışır
+            {   //oluştuğunda yapılacak işlem kodları
                 Console.WriteLine("bozuldum!");
             }
             finally
             { // hata olsada olmasada çalışacak blok
                 //hata oluştuğunda yarım kalabilecek işler için kullanılır genel olarak
                 //mesela açık kalan veri tabanı bağlantısını con.close(); gibi
-
+                //eğer finally den önce bir return dönerse finally kendini 
+                //çalışma garantisine alıp öyle return ü döndürür.
             }
 
+44 Metotlar
+**Metotlar işlemlerin belli standartlara uygun şekilde kurulup istenildiği kadar kullanılmasınıı
+sağlayan yardımcılardır.
+ class Program
+    {
+        static void bekle() { Console.ReadLine(); }
+        static void yaz(string metin) { Console.WriteLine(metin ); }
+        static void bosluk(int adet)
+        {for (int i = 0; i < adet; i++)
+            {
+                Console.WriteLine();
+            }}
+
+        static int topla(int a,int b)
+        {
+            return a + b;
+        }
+        static string kullanici(int kid)
+        {
+        string kad = string.Empty;
+            switch (kid)
+            {
+                case 1:
+                    kad = "enes";
+                    break;
+                case 2:
+                    kad = "cem";
+                    break;
+                case 3:
+                    kad = "mert";
+                    break;
+                default:
+                    kad = "misafir";
+                    break;
+
+            }
+    return kad;
+        }
+        static int al() {
+            int ad= (int.Parse(Console.ReadLine()));
+            Console.WriteLine(ad);
+            return ad;
+        }
+	 static bool isvalid(string email)
+        {
+            bool isvalid = false;
+            if (email.Contains("@"))
+            { isvalid = true;
+            }
+            return isvalid;
+        }
+        static void Main(string[] args)
+        {
+	 var dogrulama = ("eneskrgz35@gmail.com"); //dışarıdan da alınabilir 
+            Console.WriteLine(isvalid(dogrulama)); //doğru mu diye aypılan işlemimiz 
+            yaz(kullanici(al())); //içiçe metot çağırma
+            yaz("enes"); //örnek metota veri alma 
+            bosluk(2);
+	    Console.WriteLine(topla(3,5)); 
+            bekle(); //metot çağırma 
 
 
 
