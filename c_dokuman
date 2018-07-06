@@ -591,6 +591,96 @@ sağlayan yardımcılardır.
 
 
 
+46 Sınıflar 
+
+*İçerisine birden farklı nesne alabilen  
+**Class olarak tanımlanır.
+***projeye add/new item/class yolundan eklenir
+**private sadece sınıf içinde kullanılır
+**public heryerden erişilir
+**class içinde tanımlananlara field denir. Ama dışarıdan gelenlere parameter denir
+**class içerisindeki değişkenleri ifade etmek için (eğer ikiside aynı isimse) this.değişken_adı
+
+ class kutu
+    {
+        public double _uzunluk;
+        private double _genislik;
+        private double _yukseklik;
+
+        //constructor(yapıcı metot)
+        public kutu()
+        {
+            Console.WriteLine("constructor tanımlandı.\n");
+        }
+
+        //parametre alan constructor
+        public kutu(double uzunluk, double genislik, double yukseklik)
+        {
+            this._uzunluk = uzunluk;
+            //_uzunluk=uzunluk;
+            _genislik = genislik;
+            _yukseklik = yukseklik;
+            Console.WriteLine("değişkenler atandı.\n");
+        }
+
+
+    }
+
+class yıkma:
+//yıkım sırasında bazı işlemler yapabilmek için kullanılır.
+
+
+~kutu()
+{
+Console.WriteLine("class yıkılıyor..");
+}
+
+47  getter ve setter metotları
+class kutu
+    {
+        public double _uzunluk;
+        private double _genislik;
+        private double _yukseklik;
+	
+        public double Getkutu()
+        {
+            return _uzunluk*_genislik*_yukseklik;
+        }
+        public void Setkutu(double uzunluk,double yukseklik,double genislik)
+        {
+            if (uzunluk>2&& genislik>2&&yukseklik>2)
+            {
+                this._uzunluk = uzunluk;
+                this._genislik = genislik;
+                this._yukseklik = yukseklik;
+
+            }
+        }
+    }
+static void Main(string[] args)
+        {
+
+            kutu k=new kutu();
+
+            k.Setkutu(5,10,10);
+            Console.WriteLine(k.Getkutu());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
