@@ -636,6 +636,7 @@ Console.WriteLine("class yıkılıyor..");
 }
 
 47  getter ve setter metotları
+
 class kutu
     {
         public double _uzunluk;
@@ -660,20 +661,62 @@ class kutu
 static void Main(string[] args)
         {
 
-            kutu k=new kutu();
+            kutu k=new kutu(); //bu tanımlanmadan hiçbir şey çalışmaz!!!
 
             k.Setkutu(5,10,10);
             Console.WriteLine(k.Getkutu());
 
 
 
+PROPERTY:
+
+**tanımlama
+
+public double uzunluk
+        {
+         get
+        {
+                return _uzunluk;
+        }
+         set
+        {
+                if (value>0)
+                {
+                    _uzunluk = value;
+                }
+        }
+**Çağırma
+Kutu k=new Kutu();
+
+k.uzunluk=45;//set etme
+Console.WriteLine(k.uzunluk); //get etme
+
+başka örnek
 
 
+        static void Main(string[] args)
+        {
 
+            kutu k=new kutu();
+            Console.WriteLine("Kullanıcı kodunuzu girin");
 
+            k.Kul_id  = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Kullanıcı kodunuz: "+k.Kul_id);
+	}
 
-
-
+ public double Kul_id
+        {
+         get
+        {
+                return _uzunluk;
+        }
+         set
+        {
+                if (value>0)
+                {
+                    _uzunluk = value;
+                }
+        }
 
 
 
