@@ -536,8 +536,50 @@ sağlayan yardımcılardır.
             }
             return isvalid;
         }
+	
+	 static int enbuyuk(params int[] sayilar)
+        {
+            int toplam=;
+            foreach (var sayi in sayilar)
+            {
+                toplam += sayi;
+                Console.WriteLine(toplam);
+            }
+            return toplam;
+        }
+**** aynı isimde metot üretilebilir. 
+***içiçe metot çağırılabilir.Mesela 2 parametreli bi metotdu kullanarak 3 metotlu parametreli metota 1 parametrede ekleyerek işlem yapılabilir
+
+ static int Rastgele()
+        {//Random Kütüphanesi kullanılır bunun için
+	Random rnd = new Random();
+            return rnd.Next(1, int.MaxValue);
+        }
+	
+	 static void kullaniciekle(string ad, string soyad, bool aktifmi = true)
+		// opsiyonel yani kullanıcıdan değeri bizim istediğimizi alma(standart olarak) 
+		//yani aktifmi özelliğini kullanıcı eklendiğinde sistemde aktif olarak gelecek
+        {
+            Console.WriteLine(" \nAd : "+ ad+ " \nSoyad " + soyad+ "\nAktif mi: " + aktifmi);
+        }
+       
+	
         static void Main(string[] args)
         {
+	//Burada parametrelerin ne olduğunu biliyoruz ama daha karmaşık örneklerde anlamamız mümkün değil
+            // kullaniciekle("Enes", "Karagöz", false);
+            //biz opsiyonel olarak seçileni değiştiredebiliriz
+            kullaniciekle(
+	    	ad: " Enes ",
+                soyad: " Karagöz ",
+                aktifmi: false
+		);
+	
+	
+	
+	
+	
+	Console.WriteLine("Rastgele üretilen sayımız: "+Rastgele());
 	 var dogrulama = ("eneskrgz35@gmail.com"); //dışarıdan da alınabilir 
             Console.WriteLine(isvalid(dogrulama)); //doğru mu diye aypılan işlemimiz 
             yaz(kullanici(al())); //içiçe metot çağırma
