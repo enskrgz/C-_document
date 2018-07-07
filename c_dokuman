@@ -719,12 +719,139 @@ başka örnek
         }
 
 
+Örnek:
 
 
+        static void Main(string[] args)
+        {
+            Account acc = new Account();
+            Console.WriteLine(acc.GetAccount(Console.ReadLine())); 
+	    //Account classındaki string metota gider
+            
+	    Console.WriteLine(acc.GetAccount(int.Parse(Console.ReadLine()))); 
+	    //Account daki int metota gider
 
 
+class Account
+ 	   {
+        	public Account()
+        	{
+
+        	}	
+
+        public string GetAccount(string username)
+        {
+             if (!string.IsNullOrEmpty(username))
+            {
+                //boş değilse yapılacakla
+                Console.WriteLine("Kullanıcı Adı mevcut");
+            }
+            else
+            {
+                //boş ise yapılacaklar
+            }
+            return "Enes Karagöz";
+        }
+
+        public string GetAccount(int userid)
+        {
+            string sonuc = string.Empty;
+            if (userid > 0)
+            {
+                sonuc = "giriş yapıldı.";
+
+            }
+            else
+            {
+                throw new Exception("hataa!");
+            }
+            return sonuc;
+        }
+
+    }
 
 
+49 namespace
+
+** takım a iki namespace de aynı oluduğu için karışacaktır bunun önüne kütüphane tanımlama
+noktasında şu şekilde geçilir
+
+using pata= ProjeA.TeamA;
+using patb= ProjeB.TeamA;
+** bu şekilde hangi projenin team a sı çağırılacağı bilinir
+**
+birde sürekli olarak class1 i tanımlamak için başındaki projea.teama ı yazmaya gerek bırakmamaiçin 
+ kütüphaneye
+ 
+using ProjeA.TeamA;
+using ProjeA.TeamB;
+using ProjeB.TeamA;
+//** class lar yada metotlar daha hızlı erişilebilir.
+
+
+Örnek 
+
+
+namespace ProjeA
+{
+    namespace TeamA
+    {
+        class class1
+        {
+            public static  void print()
+                
+            {
+                Console.WriteLine("projea takıma Enes Karagöz print()");
+            }
+            public static void yaz()
+
+            {
+                Console.WriteLine("projea takıma Enes Karagöz yaz()");
+            }
+        }
+    }
+
+    namespace TeamB
+    {
+        class class2
+        {
+            public static void print()
+
+            {
+                Console.WriteLine(" projea takımb Enes Karagöz print()");
+            }
+            public static void yaz()
+
+            {
+                Console.WriteLine("projea takımb Enes Karagöz yaz()");
+            }
+        }
+    }
+}
+
+namespace ProjeB
+{
+    namespace TeamA
+    {
+        class class1
+        {
+            public static void print()
+            {
+                Console.WriteLine(" projeb takıma Enes Karagöz print()");
+            }
+
+            public static void yaz()
+            {
+                Console.WriteLine(" projeb takıma Enes Karagöz print()");
+            }
+        }
+    }
+
+    
+}
+
+
+//***** içiçe olan classlardaki metot ve özellikleri kullanma
 
 
 
